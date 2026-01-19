@@ -20,15 +20,22 @@
         background: #020024 !important;
         background: linear-gradient(98deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 0.9) 71%, rgba(0, 212, 255, 1) 100%) !important;
       }
+      .movieInfo{
+        border: 1px black solid;
+        padding: 10px;;
+      }
+      .movieInfoPoster{
+        text-align: center;
+        margin-right:10px
+      }
       img {
         border: 1px black solid !important;
-        width:85px !important;
+        width:185px !important;
       }
       img:hover {
-        border: 1px black solid !important;
-        width:185px !important;
-        cursor: pointer;
-      }
+        border: 2px yellow solid !important;        
+        cursor: pointer;        
+      }      
     </style>
   </head>
   <body>
@@ -51,16 +58,10 @@
           <ul class="navbar-nav mr-auto">
             
             <li class="nav-item">
-              <router-link class="nav-link" to="/customer">Lancamentos</router-link>
-
-              
-
+              <router-link class="nav-link" to="/novo">Novo</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/test">Alugados</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/item">Devolucao atrasada</router-link>
+              <router-link class="nav-link" to="/reservados">Reservados</router-link>
             </li>
           </ul>          
         </div>
@@ -82,9 +83,9 @@
       crossorigin="anonymous"
     ></script>
     <script src="Home.js"></script>
-    <script src="Customer.js"></script>
-    <script src="Item.js"></script>
-    <script src="test.js"></script>
+    <script src="novo.js"></script>
+    <script src="reservados.js"></script>    
+    <script src="info.js"></script>    
     <script src="app.js"></script>
   </body>
 </html>

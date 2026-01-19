@@ -1,9 +1,9 @@
 const customer = {
+  props: ['id'], //para route
   template: `
         <div class="container-fluid mt-2">
             <div className="col-12 pr-0 text-center">
-                <h1>Customer</h1>
-                <p>This is the Customer component.</p>
+                <h1>Novo filme</h1>                
             </div>
 
             <!-- Start customer form section -->
@@ -167,4 +167,6 @@ const customer = {
       this.customerDetails.splice(customerID, 1);
     },
   },
+
+  
 };

@@ -1,16 +1,12 @@
 const home = {
   template: `
           <div class="jumbotron">
-              <h1>Nosso catalogo possui {{ movieDetails.length }} filmes </h1>   
-
-                <div v-html="movieInfo">
-                </div> 
-                
+            <h2>Catalogo de filmes ({{ movieDetails.length }})</h2>            
           </div>
 
           <!-- Start customer Table section -->
             <div className="col-12 d-flex justify-content-center align-item-center mt-3">
-                <table class="table">
+                <table class="table table-hover">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">ID</th>
@@ -24,15 +20,24 @@ const home = {
                 <tbody>
                     <tr v-for="(movie,index) in movieDetails" :key="index">
                         <th scope="row">{{movie.ID}}</th>
-                        <td><a href="javascript:" @click.prevent="verDetalhes(index)">{{movie.Name}}</a>
-                        <span v-if="!movie.Rented"> * </span></td>
+                        <td>
+                        
+                        <!--
+                        <a href="javascript:" @click.prevent="verDetalhes(index)">{{movie.Name}}</a>
+                        <span v-if="!movie.Rented"> * </span>
+                        <br>
+                        -->                      
+
+                        <router-link class="nav-link" :to="{name:'Info', params: {id:index}}"> {{movie.Name}} </router-link>
+
+                        </td>
                         <td>{{movie.Category}}</td>
                         <td>{{movie.Protagonist}}</td>
                         <td>{{movie.Director}}</td>     
-                        <td>
-                        
-                        <a href="javascript:" @click.prevent="verDetalhes(index)" v-if="movie.Rented" > Alugar </a> 
-                        <a href="javascript:" @click.prevent="verDetalhes(index)" v-if="!movie.Rented" > Devolver </a> 
+                        <td>                        
+                            <a href="javascript:" @click.prevent="verDetalhes(index)" v-if="!movie.Rented" > Alugar </a> 
+                            <a href="javascript:" @click.prevent="verDetalhes(index)" v-if="movie.Rented"> Devolver </a> 
+                            <a href="javascript:" @click.prevent="verDetalhes(index)" v-if="!movie.Reserved"> Reservar </a>                             
                         </td>                   
                     </tr>
                 </tbody>
@@ -42,18 +47,17 @@ const home = {
 
       data() {
 
-        return {
-            //usar diretiva v-html para renderizar tag html
-            movieInfo: '',
+        return {                       
             movieDetails: [
             {
               ID: 'MV01',
               Name: 'The Thing',
               Category: 'Terror',
               Protagonist: 'Snow',
-              Director: 'John C.',
+              Director: 'John C.',              
+              Poster: 'https://br.web.img3.acsta.net/medias/nmedia/18/96/76/33/20487876.jpg',
               Rented: true,
-              Poster: 'https://br.web.img3.acsta.net/medias/nmedia/18/96/76/33/20487876.jpg'
+              Reserved: false
             },
             {
                 ID: 'MV02',
@@ -61,23 +65,21 @@ const home = {
                 Category: 'Comedia',
                 Protagonist: 'Jack N.',
                 Director: 'Stanley K.',                
+                Poster: 'https://i.ebayimg.com/images/g/7PUAAOSw3NlgpvWJ/s-l1200.webp',
                 Rented: false,
-                Poster: 'https://i.ebayimg.com/images/g/7PUAAOSw3NlgpvWJ/s-l1200.webp'
+                Reserved: false
+              },
+            {
+                ID: 'MV03',
+                Name: 'The Shining 2 - The return',
+                Category: 'Comedia',
+                Protagonist: 'Jack N.',
+                Director: 'Stanley K.',                
+                Poster: 'https://i.ebayimg.com/images/g/7PUAAOSw3NlgpvWJ/s-l1200.webp',
+                Rented: true,
+                Reserved: true
               },
           ]
-        }
-    },
-    methods: {         
-         verDetalhes(ID) {
-            const showMovie = this.movieDetails[ID];                
-            this.movieInfo = ` 
-            <div style="float:left; margin-right:10px"> <img src=${showMovie.Poster} />  </div>
-            <ul>
-            <li><b>Name:</b> ${showMovie.Name} </li>
-            <li><b>Category:</b> ${showMovie.Category} </li>
-            <li><b>Rented:</b> ${showMovie.Rented} </li>
-            </ul>
-            ` ;            
         }
     }
 };

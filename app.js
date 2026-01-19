@@ -1,8 +1,11 @@
 const routes = [
-  { path: '/', component: home },
-  { path: '/customer', component: customer },
-  { path: '/item', component: item },
-  { path: '/test', component: test },
+  {   path: '/', 
+      //name: "Home",
+      component: home 
+    },
+  { path: '/novo', component: customer },
+  { path: '/reservados', component: item },  
+  { path: '/info/:id', name: "Info", component: info, props: true },  
 ];
 
 const router = VueRouter.createRouter({
