@@ -34,17 +34,7 @@ const info = {
                     Poster: 'https://i.ebayimg.com/images/g/7PUAAOSw3NlgpvWJ/s-l1200.webp',
                     Rented: false,
                     Reserved: false
-                  },
-                {
-                    ID: 'MV03',
-                    Name: 'The Shining 2 - The return',
-                    Category: 'Comedia',
-                    Protagonist: 'Jack N.',
-                    Director: 'Stanley K.',                
-                    Poster: 'https://i.ebayimg.com/images/g/7PUAAOSw3NlgpvWJ/s-l1200.webp',
-                    Rented: true,
-                    Reserved: true
-                  },
+                  }
               ]
             }
         },
@@ -70,8 +60,23 @@ const info = {
            }
        },
         beforeMount() {
+
+            //console.log(this.movieDetails);
+
+            let newMoviesToUpdate = JSON.parse(localStorage.getItem('newMovies') || '[]')       
+            if(newMoviesToUpdate.length){                                          
+                //loop no array dos novos filmes para add elementos no array principal
+                newMoviesToUpdate.forEach(element => {
+                    //console.log(element)
+                    //console.log(element.Category)
+                    this.movieDetails.push(element);                
+                });          
+            }
+
            //console.log("Bingo!! parametro recebidoooo:"+this.$route.params.id)
            this.movieID = this.$route.params.id;
            this.verDetalhes(this.movieID);
+
+           //console.log(this.movieID);
          },       
 };

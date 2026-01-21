@@ -4,7 +4,6 @@ const routes = [
       component: home 
     },
   { path: '/novo', component: customer },
-  { path: '/reservados', component: item },  
   { path: '/info/:id', name: "Info", component: info, props: true },  
 ];
 
