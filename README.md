@@ -48,16 +48,13 @@ Locadora de filmes em VueJS explorando recursos:
 - routes
 - localStorage
 
-![Home](imgs\home.png)
+![Home](imgs/home.png)
 
 ## :rocket: Technologies ##
 
 The following tools were used in this project:
 
 - [VueJS](https://vuejs.org/)
-
-
-Made with :heart: by <a href="https://github.com/CristianoMCon" target="_blank">Cristiano</a>
 
 &#xa0;
 
