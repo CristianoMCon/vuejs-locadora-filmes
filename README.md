@@ -49,6 +49,9 @@ Locadora de filmes em VueJS explorando recursos:
 - localStorage
 
 ![Home](imgs/home.png)
+![Novo filme](imgs/novo-filme.png)
+![Home com novo filme](imgs/home-atualizada.png)
+![Detalhes do filme](imgs/filme-detalhes.png)
 
 ## :rocket: Technologies ##
 
